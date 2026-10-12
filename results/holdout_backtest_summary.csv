@@ -1,0 +1,3 @@
+split,bars,active_sessions,positive_active_pct,mean_net_return_active_bp,strategy_total_return_pct,max_drawdown_pct,always_long_open_close_pct
+train,910,267,42.32,-13.276,-30.499,-32.55,-3.078
+test,490,134,36.57,-19.453,-23.314,-25.204,-17.082

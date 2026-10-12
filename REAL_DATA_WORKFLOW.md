@@ -1,0 +1,5 @@
+# Importing actual OHLC bars
+
+Current bundled sample is **synthetic**, not an exchange feed. Download legally licensed historical daily OHLC quotes for one **specified** liquid underlying (e.g. SPY ETF or actual CME futures settlement series), archive original CSV and provider metadata, and run `src.data_import.import_ohlc_csv(path)`. That reader validates input consistency and fingerprints the exact input file. If evaluating a futures strategy, handle **contract rollovers, settlement vs close, expiry, time zones and margin** explicitly; a generic ETF is not a futures contract.
+
+Reproducible steps for a CSV with `date,open,high,low,close`: import -> `evaluate(df)` -> `exploratory_pattern_tests(evaluated)`. The original demo's 13 pattern flags and lagged execution are implemented. 12 directional pattern hypotheses receive exploratory p-values and Benjamini-Hochberg q-values, **not proof of statistical significance**: iid t-tests are invalid when returns overlap or cluster; multiple comparisons, regime bias and realistic execution must be further validated with robust/block-bootstrap tests on genuine data.
